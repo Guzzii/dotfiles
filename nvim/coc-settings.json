@@ -1,0 +1,35 @@
+{
+    // coc
+    "suggest.timeout": 5000,
+    "diagnostic.warningSign": "▲",
+    "list.insertMappings": {
+        "<C-x>": "action:split",
+        "<C-v>": "action:vsplit"
+    },
+    "list.source.grep": {"command": "ag"},
+    "list.maxPreviewHeight": 5,
+
+
+    // python
+    "python.jediEnabled": true,
+    "python.analysis.disabled": ["unresolved-import", "undefined-variable"],
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintPath": "pylint",
+    "python.workspaceSymbols.enabled": true,
+    "python.formatting.provider": "yapf",
+    "python.formatting.yapfPath": "/Users/ziwang/anaconda3/bin/yapf",
+    "python.sortImports.path": "isort",
+
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cpp", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/"],
+            "initializationOptions": {
+                "cache": {"directory": "/tmp/ccls"},
+                "clang": {"extraArgs": ["-isystem", "/usr/local/Cellar/llvm/8.0.1/include/c++/v1"]}
+            }
+        }
+    }
+}
