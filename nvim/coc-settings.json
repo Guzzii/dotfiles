@@ -21,6 +21,7 @@
     "python.formatting.yapfPath": "/Users/ziwang/anaconda3/bin/yapf",
     "python.sortImports.path": "isort",
 
+    // lsp
     "languageserver": {
         "ccls": {
             "command": "ccls",
@@ -28,7 +29,10 @@
             "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/"],
             "initializationOptions": {
                 "cache": {"directory": "/tmp/ccls"},
-                "clang": {"extraArgs": ["-isystem", "/usr/local/Cellar/llvm/8.0.1/include/c++/v1"]}
+                "clang": {
+                    "resourceDir": "/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0",
+                    "extraArgs": ["-isystem", "/Library/Developer/CommandLineTools/usr/include/c++/v1/"]
+                }
             }
         }
     }
