@@ -83,7 +83,7 @@ Plug 'heavenshell/vim-pydocstring', {'on': 'Pydocstring'}
 " More useful statusbar
 " Plug 'itchyny/lightline.vim'
 " Plug 'liuchengxu/eleline.vim'
-Plug 'Guzzii/vim-airline' ", {'commit': 'a8c96d7c'}
+Plug 'vim-airline/vim-airline' ", {'commit': 'a8c96d7c'}
 Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
@@ -419,6 +419,7 @@ let g:neoformat_python_isort = {
             \ }
 let g:neoformat_run_all_formatters = 1
 let g:neoformat_enabled_python = ['isort', 'yapf', 'docformatter']
+let g:neoformat_enabled_cpp = ['clangformat']
 
 """"""""""""""""""
 "  ALE settings  "
