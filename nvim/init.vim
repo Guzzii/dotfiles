@@ -31,7 +31,6 @@ Plug 'chriskempson/vim-tomorrow-theme'
 " Plug 'tmhedberg/SimpylFold' " Better code foding
 Plug 'dag/vim-fish'
 Plug 'benmills/vimux'
-Plug 'tpope/vim-obsession'
 " Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
@@ -40,6 +39,7 @@ Plug 'wellle/tmux-complete.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
 " Plug 'w0rp/ale'
@@ -60,7 +60,7 @@ Plug 'jpalardy/vim-slime'
 Plug 'Yggdroot/indentLine'
 
 " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
 " Plug 'ncm2/ncm2'
 " Plug 'ncm2/ncm2-jedi'
