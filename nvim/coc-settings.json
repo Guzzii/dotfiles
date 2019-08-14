@@ -9,7 +9,6 @@
     "list.source.grep": {"command": "ag"},
     "list.maxPreviewHeight": 5,
 
-
     // python
     "python.jediEnabled": true,
     "python.analysis.disabled": ["unresolved-import", "undefined-variable"],
