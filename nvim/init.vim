@@ -9,21 +9,28 @@ Plug 'rakr/vim-one'
 Plug 'mhinz/vim-janah'
 Plug 'morhetz/gruvbox'
 Plug 'jnurmine/Zenburn'
+Plug 'tlhr/anderson.vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'flrnprz/candid.vim'
+Plug 'ntk148v/vim-horizon'
 Plug 'joshdick/onedark.vim'
 Plug 'jacoborus/tender.vim'
 Plug 'Nequo/vim-allomancer'
-Plug 'ryanoasis/vim-devicons'
-Plug 'rakr/vim-two-firewatch'
+Plug 'AlessandroYorba/Breve'
+Plug 'Guzzii/vim-two-firewatch'
 Plug 'chriskempson/base16-vim'
 Plug 'nanotech/jellybeans.vim'
+Plug 'srcery-colors/srcery-vim'
+Plug 'sainnhe/gruvbox-material'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'arcticicestudio/nord-vim'
 Plug 'atelierbram/Base2Tone-vim'
 Plug 'KeitaNakamura/neodark.vim'
+Plug 'liuchengxu/space-vim-theme'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'patstockwell/vim-monokai-tasty'
 Plug 'dracula/vim', {'as': 'dracula'}
 Plug 'chriskempson/vim-tomorrow-theme'
 
@@ -35,6 +42,7 @@ Plug 'benmills/vimux'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'liuchengxu/vista.vim'
+Plug 'ryanoasis/vim-devicons'
 Plug 'wellle/tmux-complete.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-multiple-cursors'
@@ -59,7 +67,6 @@ Plug '/usr/local/opt/fzf'
 Plug 'jpalardy/vim-slime'
 Plug 'Yggdroot/indentLine'
 
-" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
 " Plug 'ncm2/ncm2'
@@ -72,6 +79,9 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 " Plug 'fgrsnau/ncm2-otherbuf', {'branch': 'ncm2'}
 " Plug 'ncm2/ncm2-match-highlight'
 " Plug 'yuki-ycino/ncm2-dictionary'
+
+" rust
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
 
 " better python
 Plug 'yhat/vim-docstring'
@@ -91,11 +101,13 @@ call plug#end()
 " We have to turn this stuff back on if we want all of our features.
 filetype plugin indent on " Filetype auto-detection
 syntax on " Syntax highlighting
+
+""""""""""""""""""""""""""
+"  Colorscheme Settings  "
+""""""""""""""""""""""""""
+
 set background=dark
 
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
 if (has("nvim"))
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
@@ -104,53 +116,54 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-" PaperColor theme
 let g:PaperColor_Theme_Options = {
     \ 'theme': {
     \    'default': {
-    \        'transparent_background': 0,
-    \        'allow_bold': 1,
-    \        'allow_italic': 1
+    \        'transparent_background': 0, 'allow_bold': 1, 'allow_italic': 1
     \     }
     \ },
-    \ 'language': {
-    \     'python': {
-    \        'highlight_builtins': 1
-    \     }
-    \ }
-    \ }
-" colorscheme PaperColor
+    \ 'language': {'python': {'highlight_builtins': 1}}
+\ }
 
 let g:jellybeans_overrides = {
 \    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
-\}
+\ }
 if has('termguicolors') && &termguicolors
     let g:jellybeans_overrides['background']['guibg'] = 'none'
 endif
 
 let g:jellybeans_use_gui_italics = 1
-" colorscheme jellybeans
 
 let g:gruvbox_contrast_dark = 'medium'
-" colorscheme gruvbox
 
 let g:nord_uniform_status_lines = 1
 let g:nord_italic = 1
 let g:nord_italic_comments = 1
-colorscheme nord
 
 let g:onedark_terminal_italics = 1
-" colorscheme onedark
 
 let g:one_allow_italics = 1
-" colorscheme one
 
 let g:quantum_black = 1
 let g:quantum_italics = 1
-" colorscheme quantum
 
-" colorscheme monokai_pro
-" colorscheme palenight
+let g:srcery_italic = 1
+let g:srcery_bold = 1
+
+let g:two_firewatch_italics = 1
+
+let g:vim_monokai_tasty_italic = 1
+
+let ayucolor = 'dark'
+
+colorscheme two-firewatch
+
+" plugin settings
+let g:python_highlight_all = 1
+
+"""""""""""""""""""""""""""""""""""
+"  Neovim Built-in Configuration  "
+"""""""""""""""""""""""""""""""""""
 
 set hidden
 set guicursor=n-v-c:block,i-ci-ve:hor20,r-cr:hor20,o:hor50
@@ -278,10 +291,6 @@ noremap <C-p> :Files<Enter>
 noremap j gj
 noremap k gk
 
-" plugin settings
-let g:python_highlight_all = 1
-
-
 """"""""""""""""""""
 "  slime settings  "
 """"""""""""""""""""
@@ -310,7 +319,7 @@ nnoremap <Leader>f :NERDTreeToggle<Enter>
 "  UltiSnips settings  "
 """"""""""""""""""""""""
 
-let g:UltiSnipsExpandTrigger="<leader>l"
+let g:UltiSnipsExpandTrigger = "<leader>l"
 let g:ultisnips_python_style = "numpy"
 
 """"""""""""""""""
@@ -478,9 +487,7 @@ let g:airline_powerline_fonts = 1
 " let g:airline_left_alt_sep = '|'
 let g:airline_section_x = ''
 let g:airline_section_z = '%3v ☰ %3p%%'
-" let g:airline_theme='twofirewatch'
-" let g:airline_theme='papercolor'
-let g:airline_theme = 'nord'
+let g:airline_theme='twofirewatch'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#left_sep = ' '
