@@ -48,14 +48,13 @@ Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 
 " Plug 'w0rp/ale'
 Plug 'sbdchd/neoformat'
 Plug 'jceb/vim-orgmode'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter' " Show git diff info in gutter
-Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
+" Plug 'Xuyuanp/nerdtree-git-plugin', {'on': 'NERDTreeToggle'}
 
 " snippets
 Plug 'SirVer/ultisnips'
@@ -66,19 +65,9 @@ Plug 'junegunn/fzf.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'jpalardy/vim-slime'
 Plug 'Yggdroot/indentLine'
+Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app & yarn install'}
 
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-
-" Plug 'ncm2/ncm2'
-" Plug 'ncm2/ncm2-jedi'
-" Plug 'ncm2/ncm2-tmux'
-" Plug 'ncm2/ncm2-path'
-" Plug 'roxma/nvim-yarp'
-" Plug 'ncm2/ncm2-bufword'
-" Plug 'ncm2/ncm2-ultisnips'
-" Plug 'fgrsnau/ncm2-otherbuf', {'branch': 'ncm2'}
-" Plug 'ncm2/ncm2-match-highlight'
-" Plug 'yuki-ycino/ncm2-dictionary'
 
 " rust
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
@@ -91,9 +80,7 @@ Plug 'vim-scripts/indentpython.vim', {'for': 'python'}
 Plug 'heavenshell/vim-pydocstring', {'on': 'Pydocstring'}
 
 " More useful statusbar
-" Plug 'itchyny/lightline.vim'
-" Plug 'liuchengxu/eleline.vim'
-Plug 'vim-airline/vim-airline' ", {'commit': 'a8c96d7c'}
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
