@@ -12,6 +12,12 @@
     },
     "list.source.grep": {"command": "ag"},
     "list.maxPreviewHeight": 5,
+    "suggest.completionItemKindLabels": {
+        "class": "\ue61e",
+        "module": "\ufb18",
+        "function": "\uf794",
+        "variable": "\ufa77"
+    },
 
     // python
     "python.jediEnabled": true,
