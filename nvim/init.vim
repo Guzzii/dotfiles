@@ -331,8 +331,8 @@ endfunction
 " Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-nmap <silent> <space>g <Plug>(coc-definition)
-nmap <silent> <space>n <Plug>(coc-references)
+nnoremap <silent> <space>g <Plug>(coc-definition)
+nnoremap <silent> <space>n <Plug>(coc-references)
 
 function! s:show_documentation()
   if &filetype == 'vim'
@@ -359,19 +359,23 @@ function! s:GrepFromSelected(type)
 endfunction
 
 " Remap for rename current word
-nmap <space>r <Plug>(coc-rename)
+nnoremap <space>r <Plug>(coc-rename)
 " " Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <space>o :<C-u>CocList outline<cr>
 
 " Using CocList
-nnoremap <silent> <space>d  :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <space>a  <Plug>(coc-codeaction-selected)
-vmap <silent> <space>a  <Plug>(coc-codeaction-selected)
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>c :<C-u>CocList commands<cr>
 " Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>p :<C-u>CocListResume<CR>
+
+nmap <space>] <Plug>(coc-diagnostic-next)
+nmap <space>[ <Plug>(coc-diagnostic-prev)
+
+nnoremap <space>a :<C-u>set operatorfunc=<SID>CodeActionFromSelected<CR>g@
+vnoremap <space>a <Plug>(coc-codeaction-selected)
 nnoremap <space>w :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
 vnoremap <space>w :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 
@@ -440,6 +444,10 @@ let g:neoformat_enabled_cpp = ['clangformat']
 "     \ 'python': ['yapf', 'isort']
 "     \ }
 " let g:ale_python_isort_options = '-ff FROM-FIRST --lines-between-types 1'
+
+"""""""""""""""""""""""""
+"  IndentLine settings  "
+"""""""""""""""""""""""""
 
 let g:indentLine_char = '¦'
 let g:indentLine_first_char = '¦'
