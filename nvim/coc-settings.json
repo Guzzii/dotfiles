@@ -1,7 +1,11 @@
 {
     // coc
     "suggest.timeout": 5000,
-    "diagnostic.warningSign": "▲",
+    "coc.preferences.jumpCommand": "split",
+    "diagnostic.hintSign": "\uf553",
+    "diagnostic.infoSign": "\uf553",
+    "diagnostic.errorSign": "\uf553",
+    "diagnostic.warningSign": "\uf553",
     "list.insertMappings": {
         "<C-x>": "action:split",
         "<C-v>": "action:vsplit"
