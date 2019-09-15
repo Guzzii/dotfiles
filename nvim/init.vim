@@ -284,8 +284,6 @@ noremap k gk
 let g:slime_target = "neovim"
 let g:slime_target = "tmux"
 let g:slime_python_ipython = 1
-xmap <silent> <C-Return> <Plug>(SlimeRegionSend)
-nmap <silent> <C-Return> <Plug>(SlimeParagraphSend)
 
 " python docstring
 let g:pydocstring_enable_mapping = 0
