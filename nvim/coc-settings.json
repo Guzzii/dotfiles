@@ -21,6 +21,7 @@
 
     // python
     "python.jediEnabled": true,
+    "python.venvPath": "~/.pyenv/versions/3.7.4/envs",
     "python.analysis.disabled": ["unresolved-import", "undefined-variable"],
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
