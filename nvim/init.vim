@@ -313,6 +313,8 @@ let g:ultisnips_python_style = "numpy"
 "  COC settings  "
 """"""""""""""""""
 
+let g:coc_global_extension = ['coc-python', 'coc-json', 'coc-lists', 'coc-emoji', 'coc-ultisnips']
+
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
