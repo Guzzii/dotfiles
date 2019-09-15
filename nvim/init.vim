@@ -410,7 +410,7 @@ let g:neoformat_python_yapf = {
             \ }
 let g:neoformat_python_isort = {
             \ 'exe': 'isort',
-            \ 'args': ['-', '--quiet', '--thirdparty', 'jardin'],
+            \ 'args': ['-'],
             \ 'stdin': 1,
             \ }
 let g:neoformat_run_all_formatters = 1
