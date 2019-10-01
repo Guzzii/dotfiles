@@ -329,8 +329,27 @@ endfunction
 " Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-nnoremap <silent> <space>g <Plug>(coc-definition)
-nnoremap <silent> <space>n <Plug>(coc-references)
+nmap <silent> <space>g <Plug>(coc-definition)
+nmap <silent> <space>n <Plug>(coc-references)
+nmap <silent> <space>r <Plug>(coc-rename)
+nnoremap <silent> <space>k :call <SID>show_documentation()<CR>
+nnoremap <silent> <space>o :<C-u>CocList outline<cr>
+
+" Using CocList
+nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>c :<C-u>CocList commands<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>p :<C-u>CocListResume<CR>
+
+nmap <space>] <Plug>(coc-diagnostic-next)
+nmap <space>[ <Plug>(coc-diagnostic-prev)
+
+nnoremap <space>a :<C-u>set operatorfunc=<SID>CodeActionFromSelected<CR>g@
+vmap <space>a <Plug>(coc-codeaction-selected)
+nnoremap <space>w :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
+vmap <space>w :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 
 function! s:show_documentation()
   if &filetype == 'vim'
@@ -339,7 +358,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-nnoremap <silent> <space>k :call <SID>show_documentation()<CR>
 
 function! s:GrepFromSelected(type)
   let saved_unnamed_register = @@
@@ -355,27 +373,6 @@ function! s:GrepFromSelected(type)
   let @@ = saved_unnamed_register
   execute 'CocList grep '.word
 endfunction
-
-" Remap for rename current word
-nnoremap <space>r <Plug>(coc-rename)
-" " Find symbol of current document
-nnoremap <silent> <space>o :<C-u>CocList outline<cr>
-
-" Using CocList
-nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
-nnoremap <silent> <space>c :<C-u>CocList commands<cr>
-" Search workspace symbols
-nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
-nnoremap <silent> <space>p :<C-u>CocListResume<CR>
-
-nmap <space>] <Plug>(coc-diagnostic-next)
-nmap <space>[ <Plug>(coc-diagnostic-prev)
-
-nnoremap <space>a :<C-u>set operatorfunc=<SID>CodeActionFromSelected<CR>g@
-vnoremap <space>a <Plug>(coc-codeaction-selected)
-nnoremap <space>w :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
-vnoremap <space>w :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 
 " " Do default action for next item.
 " nnoremap <silent> <space>j  :<C-u>CocNext<CR>
@@ -414,7 +411,7 @@ let g:neoformat_python_yapf = {
             \ }
 let g:neoformat_python_isort = {
             \ 'exe': 'isort',
-            \ 'args': ['-'],
+            \ 'args': ['-', '--thirdparty', 'jardin'],
             \ 'stdin': 1,
             \ }
 let g:neoformat_run_all_formatters = 1
