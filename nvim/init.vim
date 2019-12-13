@@ -30,7 +30,6 @@ Plug 'liuchengxu/space-vim-theme'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'drewtempelmeyer/palenight.vim'
-Plug 'patstockwell/vim-monokai-tasty'
 Plug 'dracula/vim', {'as': 'dracula'}
 Plug 'chriskempson/vim-tomorrow-theme'
 
@@ -164,7 +163,7 @@ set relativenumber
 set number
 set linebreak
 set mouse=a " allow mouse wheel scrolls inside vim
-set clipboard=unnamed " normal clipboard bahaviour
+set clipboard+=unnamedplus " normal clipboard bahaviour
 " set path+=** " look subfolder in tabcompletion
 set wildmenu
 set wildignore=*.ipynb,*.pyc,*.swp
@@ -209,9 +208,9 @@ set virtualedit+=block
 
 if (has("nvim"))
     " find python for neovim
-    let g:python3_host_prog = expand('~/anaconda3/bin/python')
-    " let g:loaded_python_provider = 1 " disable python2 support
-    let g:python_host_prog = expand('~/anaconda3/envs/staffing/bin/python')
+    let g:python3_host_prog = expand('~/.pyenv/versions/3.7.4/bin/python')
+    let g:loaded_python_provider = 1 " disable python2 support
+    " let g:python_host_prog = expand('~/anaconda3/envs/staffing/bin/python')
 endif
 
 " So we don't have to press shift when we want to get into command mode.
@@ -269,8 +268,40 @@ noremap <leader><space> :noh<cr>:call clearmatches()<cr>:IndentLinesEnable<cr>
 " Quick buffer switching - like cmd-tab'ing
 " nnoremap <leader><leader> <c-^>
 
-" FZF normal model map
+""""""""""""""""""
+"  FZF settings  "
+""""""""""""""""""
+
 noremap <C-p> :Files<Enter>
+
+let g:fzf_layout = { 'window': 'call OpenFloatingWin()' }
+
+function! OpenFloatingWin()
+    let height = &lines - 3
+    let width = float2nr(&columns - (&columns * 2 / 10))
+    let col = float2nr((&columns - width) / 2)
+
+    let opts = {
+                \ 'relative': 'editor',
+                \ 'row': height * 0.3,
+                \ 'col': col + 30,
+                \ 'width': width * 2 / 3,
+                \ 'height': height / 2
+                \ }
+
+    let buf = nvim_create_buf(v:false, v:true)
+    let win = nvim_open_win(buf, v:true, opts)
+
+    call setwinvar(win, '&winhl', 'Normal:Pmenu')
+
+    setlocal
+                \ buftype=nofile
+                \ nobuflisted
+                \ bufhidden=hide
+                \ nonumber
+                \ norelativenumber
+                \ signcolumn=no
+endfunction
 
 " Visual line nav, not real line nav
 " If you wrap lines, vim by default won't let you move down one line to the
@@ -288,17 +319,6 @@ let g:slime_python_ipython = 1
 " python docstring
 let g:pydocstring_enable_mapping = 0
 let g:pydocstring_templates_dir = expand('~/.local/share/nvim/plugged/vim-pydocstring/test/templates/numpy')
-
-"""""""""""""""""""""""
-"  NerdTree settings  "
-"""""""""""""""""""""""
-
-let NERDTreeQuitOnOpen = 1
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeDirArrows = 1
-let NERDTreeIgnore = ['\.pyc$']
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-nnoremap <Leader>f :NERDTreeToggle<Enter>
 
 """"""""""""""""""""""""
 "  UltiSnips settings  "
@@ -407,7 +427,7 @@ set laststatus=2
 """"""""""""""""""""""""
 
 let g:neoformat_python_yapf = {
-            \ 'exe': '/Users/ziwang/anaconda3/bin/yapf',
+            \ 'exe': 'yapf',
             \ }
 let g:neoformat_python_isort = {
             \ 'exe': 'isort',
@@ -453,7 +473,7 @@ let g:indentLine_showFirstIndentLevel = 1
 """""""""""""""""""""""
 
 let g:jedi#auto_vim_configuration = 0  " dont change completeopt settings in jedi-vim
-let g:jedi#show_call_signatures = 2
+let g:jedi#show_call_signatures = 1
 let g:jedi#show_call_signatures_delay = 10
 let g:jedi#use_splits_not_buffers = 'winwidth'
 let g:jedi#popup_on_dot = 0
