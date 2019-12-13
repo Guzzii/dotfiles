@@ -234,6 +234,9 @@ endfunction
 tnoremap <leader><Esc> <C-c>
 tnoremap <Esc> <C-\><C-n>
 
+nnoremap <silent> <space>gs :<C-u>Gstatus<cr>
+nnoremap <silent> <space>gc :<C-u>Gcommit<cr>
+
 noremap <silent> <leader>vt :vs term://fish<Cr>
 noremap <silent> <leader>st :sp term://fish<Cr>
 
