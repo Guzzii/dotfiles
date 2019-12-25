@@ -26,8 +26,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 2
-    y: 2
+    x: 4
+    y: 4
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -41,10 +41,10 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background, but no title bar buttons
-  decorations: full
+  decorations: buttonless
 
   # When true, alacritty starts maximized.
-  startup_mode: 'Maximized'
+  startup_mode: 'Windowed'
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -86,10 +86,10 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: Iosevka Nerd Font
+    family: OperatorMono Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    # style: Book
 
   # Bold font face
   bold:
@@ -97,10 +97,10 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Iosevka Nerd Font
+    family: OperatorMono Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
-    style: Bold
+    # style: Bold
 
   # Italic font face
   italic:
@@ -108,10 +108,10 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Iosevka Nerd Font
+    family: OperatorMono Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
-    style: Oblique
+    # style: Book Italic
 
   # Point size
   size: 14.0
@@ -274,7 +274,7 @@ visual_bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 1
+background_opacity: 0.98
 
 # Mouse bindings
 #

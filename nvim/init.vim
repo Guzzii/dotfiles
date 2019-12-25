@@ -7,7 +7,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Just a shitload of color schemes.
 Plug 'rakr/vim-one'
 Plug 'mhinz/vim-janah'
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'Guzzii/gruvbox'
 Plug 'jnurmine/Zenburn'
 Plug 'tlhr/anderson.vim'
 Plug 'ayu-theme/ayu-vim'
@@ -30,8 +31,10 @@ Plug 'liuchengxu/space-vim-theme'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'drewtempelmeyer/palenight.vim'
-Plug 'dracula/vim', {'as': 'dracula'}
+" Plug 'dracula/vim', {'as': 'dracula'}
+Plug 'patstockwell/vim-monokai-tasty'
 Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'ErichDonGubler/vim-sublime-monokai'
 
 " Utility tools
 " Plug 'tmhedberg/SimpylFold' " Better code foding
@@ -46,7 +49,7 @@ Plug 'wellle/tmux-complete.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/rainbow_parentheses.vim'
+" Plug 'junegunn/rainbow_parentheses.vim'
 
 " Plug 'w0rp/ale'
 Plug 'sbdchd/neoformat'
@@ -105,7 +108,7 @@ endif
 let g:PaperColor_Theme_Options = {
     \ 'theme': {
     \    'default': {
-    \        'transparent_background': 0, 'allow_bold': 1, 'allow_italic': 1
+    \        'transparent_background': 1, 'allow_bold': 1, 'allow_italic': 1
     \     }
     \ },
     \ 'language': {'python': {'highlight_builtins': 1}}
@@ -121,6 +124,8 @@ endif
 let g:jellybeans_use_gui_italics = 1
 
 let g:gruvbox_contrast_dark = 'medium'
+let g:gruvbox_bold = '1'
+let g:gruvbox_italic = '1'
 
 let g:nord_uniform_status_lines = 1
 let g:nord_italic = 1
@@ -138,11 +143,15 @@ let g:srcery_bold = 1
 
 let g:two_firewatch_italics = 1
 
+let g:sublimemonokai_term_italic = 1
+
 let g:vim_monokai_tasty_italic = 1
 
-let ayucolor = 'dark'
+let g:palenight_terminal_italics = 1
 
-colorscheme two-firewatch
+let ayucolor = 'mirage'
+
+colorscheme vim-monokai-tasty
 
 " plugin settings
 let g:python_highlight_all = 1
@@ -254,7 +263,6 @@ noremap <Leader>vp :VimuxPromptCommand<CR>
 
 " use f4 to remove all training whitespace
 nnoremap <silent> <F4> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
-nnoremap <silent> <space>f :Neoformat<CR>
 
 " easy breakpoint python
 au FileType python map <silent> <leader>o oimport pdb; pdb.set_trace()<esc>
@@ -268,6 +276,12 @@ set foldlevel=99
 " Clear match highlighting
 noremap <leader><space> :noh<cr>:call clearmatches()<cr>:IndentLinesEnable<cr>
 
+" Visual line nav, not real line nav
+" If you wrap lines, vim by default won't let you move down one line to the
+" wrapped portion. This fixes that.
+noremap j gj
+noremap k gk
+
 " Quick buffer switching - like cmd-tab'ing
 " nnoremap <leader><leader> <c-^>
 
@@ -276,6 +290,8 @@ noremap <leader><space> :noh<cr>:call clearmatches()<cr>:IndentLinesEnable<cr>
 """"""""""""""""""
 
 noremap <C-p> :Files<Enter>
+noremap <space>fl :Lines<Enter>
+noremap <space>fb :Buffers<Enter>
 
 let g:fzf_layout = { 'window': 'call OpenFloatingWin()' }
 
@@ -306,11 +322,16 @@ function! OpenFloatingWin()
                 \ signcolumn=no
 endfunction
 
-" Visual line nav, not real line nav
-" If you wrap lines, vim by default won't let you move down one line to the
-" wrapped portion. This fixes that.
-noremap j gj
-noremap k gk
+""""""""""""""""""""
+"  Vista settings  "
+""""""""""""""""""""
+
+let g:vista_sidebar_position = 'vertical topleft'
+let g:vista_highlight_whole_line = 1
+let g:vista#renderer#ctags = 'default'
+let g:vista_update_on_text_changed_delay = 100
+let g:vista_echo_cursor_strategy = 'floating_win'
+let g:vista_disable_statusline = 1
 
 """"""""""""""""""""
 "  slime settings  "
@@ -319,7 +340,10 @@ let g:slime_target = "neovim"
 let g:slime_target = "tmux"
 let g:slime_python_ipython = 1
 
-" python docstring
+""""""""""""""""""""""""""
+"  pydocstring settings  "
+""""""""""""""""""""""""""
+
 let g:pydocstring_enable_mapping = 0
 let g:pydocstring_templates_dir = expand('~/.local/share/nvim/plugged/vim-pydocstring/test/templates/numpy')
 
@@ -352,27 +376,11 @@ endfunction
 " Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-nmap <silent> <space>g <Plug>(coc-definition)
-nmap <silent> <space>n <Plug>(coc-references)
-nmap <silent> <space>r <Plug>(coc-rename)
-nnoremap <silent> <space>k :call <SID>show_documentation()<CR>
-nnoremap <silent> <space>o :<C-u>CocList outline<cr>
-
-" Using CocList
-nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
-nnoremap <silent> <space>c :<C-u>CocList commands<cr>
-" Search workspace symbols
-nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
-nnoremap <silent> <space>p :<C-u>CocListResume<CR>
-
-nmap <space>] <Plug>(coc-diagnostic-next)
-nmap <space>[ <Plug>(coc-diagnostic-prev)
-
-nnoremap <space>a :<C-u>set operatorfunc=<SID>CodeActionFromSelected<CR>g@
-vmap <space>a <Plug>(coc-codeaction-selected)
-nnoremap <space>w :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
-vmap <space>w :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
+nmap <silent> <space>og <Plug>(coc-definition)
+nmap <silent> <space>on <Plug>(coc-references)
+nmap <silent> <space>or <Plug>(coc-rename)
+nnoremap <silent> <space>oo :<C-u>CocList outline<cr>
+nnoremap <silent> <space>ok :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if &filetype == 'vim'
@@ -381,6 +389,22 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" Using CocList
+nnoremap <silent> <space>od :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>oe :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>oc :<C-u>CocList commands<cr>
+" Search workspace symbols
+nnoremap <silent> <space>os :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>op :<C-u>CocListResume<CR>
+
+nmap <space>o] <Plug>(coc-diagnostic-next)
+nmap <space>o[ <Plug>(coc-diagnostic-prev)
+
+nnoremap <space>oa :<C-u>set operatorfunc=<SID>CodeActionFromSelected<CR>g@
+vmap <space>oa <Plug>(coc-codeaction-selected)
+nnoremap <space>os :<C-u>set operatorfunc=<SID>GrepFromSelected<CR>g@
+vmap <space>os :<C-u>call <SID>GrepFromSelected(visualmode())<CR>
 
 function! s:GrepFromSelected(type)
   let saved_unnamed_register = @@
@@ -429,6 +453,8 @@ set laststatus=2
 "  Neoformat settings  "
 """"""""""""""""""""""""
 
+nnoremap <silent> <space>bf :Neoformat<CR>
+
 let g:neoformat_python_yapf = {
             \ 'exe': 'yapf',
             \ }
@@ -467,8 +493,8 @@ let g:neoformat_enabled_cpp = ['clangformat']
 "  IndentLine settings  "
 """""""""""""""""""""""""
 
-let g:indentLine_char = '¦'
-let g:indentLine_first_char = '¦'
+let g:indentLine_char = ''
+let g:indentLine_first_char = ''
 let g:indentLine_showFirstIndentLevel = 1
 
 """""""""""""""""""""""
@@ -498,15 +524,19 @@ let g:AutoPairsMapCh = 0
 """"""""""""""""""""""
 let g:airline#extensions#branch#vcs_checks = []
 let g:airline_powerline_fonts = 1
-" let g:airline_left_sep=' '
-" let g:airline_left_alt_sep = '|'
+
+let g:airline_left_sep = "\ue0c4"
+let g:airline_left_alt_sep = "\ue0c4"
+let g:airline_right_sep = "\ue0c5"
+let g:airline_right_alt_sep = "\ue0c5"
+let g:airline#extensions#tabline#left_sep = "\ue0c4"
+let g:airline#extensions#tabline#right_sep = "\ue0c5"
+
 let g:airline_section_x = ''
-let g:airline_section_z = '%3v ☰ %3p%%'
-let g:airline_theme='twofirewatch'
-let g:airline#extensions#ale#enabled = 1
+let g:airline_section_z = '%3v:%3p%%'
+let g:airline_theme='monokai_tasty'
+let g:airline#extensions#ale#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#left_sep = ' '
-" let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 " let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
 " let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
