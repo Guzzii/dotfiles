@@ -21,14 +21,14 @@
 
     // python
     "python.jediEnabled": true,
-    "python.venvPath": "~/.pyenv/versions/3.7.4/envs",
+    "python.venvPath": "~/.pyenv/versions",
     "python.analysis.disabled": ["unresolved-import", "undefined-variable"],
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
     "python.linting.pylintPath": "pylint",
     "python.workspaceSymbols.enabled": true,
     "python.formatting.provider": "yapf",
-    "python.formatting.yapfPath": "/Users/ziwang/anaconda3/bin/yapf",
+    "python.formatting.yapfPath": "~/.pyenv/versions/3.7.4/bin/yapf",
     "python.sortImports.path": "isort",
 
     // lsp
