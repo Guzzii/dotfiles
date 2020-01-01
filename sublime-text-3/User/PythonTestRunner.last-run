@@ -1,0 +1,3 @@
+{
+	"last_test_run": "pytest \"$file\" tests.test_metrics"
+}

@@ -1,0 +1,22 @@
+[
+    // Open a terminal tab at current file directory
+    {
+        "keys": ["\\", "v", "t"], "command": "terminus_open",
+        "args": {"cwd": "${file_path:${folder}}"}
+    },
+    {
+        "keys": ["ctrl+'"], "command": "pytest_toggle_panel",
+    },
+    {
+        "keys": ["ctrl+alt+'"], "command": "pytest_toggle_phantoms"
+    },
+    {
+        "keys": ["\\", "t", "h"], "command": "pytest_run_test_under_cursor",
+    },
+    {
+        "keys": ["\\", "t", "f"], "command": "pytest_run_current_file",
+    },
+    {
+        "keys": ["\\", "t", "p"], "command": "pytest_run_all",
+    },
+]

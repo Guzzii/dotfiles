@@ -1,0 +1,41 @@
+{
+	"clients":
+	{
+		"mspyls":
+		{
+			"command":
+			[
+				"dotnet",
+				"exec",
+				"/Users/ziwang/Documents/Library/python-language-server/output/bin/Debug/Microsoft.Python.LanguageServer.dll"
+			],
+			"enabled": true,
+			"initializationOptions":
+			{
+				"interpreter":
+				{
+					"properties":
+					{
+						"InterpreterPath": "/Users/ziwang/.pyenv/versions/3.7.4/bin/python",
+						"UseDefaultDatabase": true,
+						"Version": "3.7"
+					}
+				}
+			},
+			"languageId": "python",
+			"scopes":
+			[
+				"source.python"
+			],
+			"settings":
+			{
+				"python.formatting.provider": "yapf",
+				"python.formatting.yapfPath": "/Users/ziwang/.pyenv/versions/3.7.4/bin/yapf"
+			},
+			"syntaxes":
+			[
+				"Packages/Python/Python.sublime-syntax"
+			]
+		}
+	}
+}
