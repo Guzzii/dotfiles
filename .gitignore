@@ -25,6 +25,8 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# config files and directories
 coc/
 configstore/
 fish/
@@ -38,6 +40,10 @@ yarn
 .netrwhist
 
 # sublime stuff
+icons/
+app-icon/
+*.png
+*.last-run
 Package Control.last-run
 Package Control.ca-list
 Package Control.ca-bundle
