@@ -1,7 +1,7 @@
 {
     // coc
     "suggest.timeout": 5000,
-    "coc.preferences.jumpCommand": "split",
+    // "coc.preferences.jumpCommand": "split",
     "diagnostic.hintSign": "\uf553",
     "diagnostic.infoSign": "\uf553",
     "diagnostic.errorSign": "\uf553",

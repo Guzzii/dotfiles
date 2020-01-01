@@ -7,14 +7,12 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Just a shitload of color schemes.
 Plug 'rakr/vim-one'
 Plug 'mhinz/vim-janah'
-" Plug 'morhetz/gruvbox'
 Plug 'Guzzii/gruvbox'
 Plug 'jnurmine/Zenburn'
 Plug 'tlhr/anderson.vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'flrnprz/candid.vim'
 Plug 'ntk148v/vim-horizon'
-Plug 'joshdick/onedark.vim'
 Plug 'jacoborus/tender.vim'
 Plug 'Nequo/vim-allomancer'
 Plug 'AlessandroYorba/Breve'
@@ -23,7 +21,6 @@ Plug 'chriskempson/base16-vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'srcery-colors/srcery-vim'
 Plug 'sainnhe/gruvbox-material'
-Plug 'phanviet/vim-monokai-pro'
 Plug 'arcticicestudio/nord-vim'
 Plug 'atelierbram/Base2Tone-vim'
 Plug 'KeitaNakamura/neodark.vim'
@@ -31,17 +28,17 @@ Plug 'liuchengxu/space-vim-theme'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'drewtempelmeyer/palenight.vim'
-" Plug 'dracula/vim', {'as': 'dracula'}
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'ErichDonGubler/vim-sublime-monokai'
 
 " Utility tools
 " Plug 'tmhedberg/SimpylFold' " Better code foding
 Plug 'dag/vim-fish'
 Plug 'benmills/vimux'
-" Plug 'majutsushi/tagbar'
+Plug 'gko/vim-coloresque'
+Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'liuchengxu/vista.vim'
 Plug 'ryanoasis/vim-devicons'
@@ -49,9 +46,9 @@ Plug 'wellle/tmux-complete.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'michaeljsmith/vim-indent-object'
 " Plug 'junegunn/rainbow_parentheses.vim'
 
-" Plug 'w0rp/ale'
 Plug 'sbdchd/neoformat'
 Plug 'jceb/vim-orgmode'
 Plug 'tpope/vim-fugitive'
@@ -62,7 +59,6 @@ Plug 'airblade/vim-gitgutter' " Show git diff info in gutter
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-" Plug 'w0rp/ale' " Syntax checking
 Plug 'junegunn/fzf.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'jpalardy/vim-slime'
@@ -146,6 +142,7 @@ let g:two_firewatch_italics = 1
 let g:sublimemonokai_term_italic = 1
 
 let g:vim_monokai_tasty_italic = 1
+let g:vim_monokai_pro_palette = 1
 
 let g:palenight_terminal_italics = 1
 
@@ -164,7 +161,7 @@ set hidden
 set guicursor=n-v-c:block,i-ci-ve:hor20,r-cr:hor20,o:hor50
    \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
    \,sm:block-blinkwait175-blinkoff150-blinkon175
-set cursorline
+" set cursorline
 set noshowmode
 set signcolumn=auto
 
