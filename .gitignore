@@ -42,6 +42,7 @@ yarn
 # sublime stuff
 icons/
 app-icon/
+*.crt
 *.png
 *.last-run
 Package Control.last-run
