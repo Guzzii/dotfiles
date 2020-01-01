@@ -28,7 +28,7 @@ Plug 'liuchengxu/space-vim-theme'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'drewtempelmeyer/palenight.vim'
-Plug 'patstockwell/vim-monokai-tasty'
+Plug 'Guzzii/vim-monokai-tasty'
 Plug 'chriskempson/vim-tomorrow-theme'
 
 " Utility tools
