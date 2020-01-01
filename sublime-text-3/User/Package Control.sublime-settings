@@ -1,0 +1,22 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Anaconda",
+		"FileIcons",
+		"Git",
+		"GitGutter",
+		"LSP",
+		"NeoVintageous",
+		"Package Control",
+		"PyTest",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-pylint",
+		"Terminus",
+		"Theme - Monokai Pro"
+	]
+}

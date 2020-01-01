@@ -1,0 +1,4 @@
+{
+    "options": "--tb=auto -l --disable-pytest-warnings",
+    "mode": "manual",
+}

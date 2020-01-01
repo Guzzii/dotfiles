@@ -1,0 +1,10 @@
+{
+	"disable_anaconda_completion": false,
+    "use_pylint": true,
+    "pylint_rcfile": "/Users/ziwang/.pylintrc",
+    "anaconda_linting": false,
+    "anaconda_linter_phantoms": true,
+    "anaconda_linting_behaviour": "load-save",
+    "enable_signatures_tooltip": true,
+    "merge_signatures_and_doc": true, 
+}
