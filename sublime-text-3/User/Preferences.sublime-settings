@@ -1,29 +1,29 @@
 {
 	"auto_complete": true,
-	"auto_complete_cycle": true,
 	"auto_complete_commit_on_tab": false,
+	"auto_complete_cycle": true,
 	"color_scheme": "Packages/Theme - Monokai Pro/Monokai Pro.sublime-color-scheme",
-	"font_face": "Iosevka Nerd Font",
+	"font_face": "Ubuntu Nerd Font",
 	"font_size": 14,
 	"highlight_line": true,
 	"highlightedyank_duration": 100,
 	"ignored_packages":
 	[
 		"LSP",
+		"NeoVintageous",
 		"Six",
 		"Vintage",
-		"Vintageous",
-		// "NeoVintageous",
+		"Vintageous"
 	],
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
 	"neovintageous_build_version": 11100,
 	"scroll_past_end": true,
+	"show_git_status": true,
 	"tab_size": 4,
 	"theme": "Default.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"vintageous_use_ctrl_keys": true,
 	"vintageous_use_super_keys": true,
-	"vintageous_use_sys_clipboard": true,
-	"show_git_status": false,
+	"vintageous_use_sys_clipboard": true
 }

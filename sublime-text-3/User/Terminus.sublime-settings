@@ -1,13 +1,21 @@
 {
-    "default_config": {"osx": "Fish"},
-    "shell_configs": [
-        {
-            "name": "Fish",
-            "cmd": ["/usr/local/bin/fish"],
-            "enable": true,
-            "platforms": ["linux", "osx"]
-        },
-    ],
-    "256color": true,
-    "unix_term": "xterm-256color",
+	"256color": true,
+	// "shell_configs":
+	// [
+	// 	{
+	// 		"cmd":
+	// 		[
+	// 			"/usr/local/bin/fish"
+	// 		],
+	// 		"enable": true,
+	// 		"name": "Fish",
+	// 		"platforms":
+	// 		[
+	// 			"linux",
+	// 			"osx"
+	// 		]
+	// 	}
+	// ],
+	"theme": "default",
+	"unix_term": "xterm-256color"
 }
