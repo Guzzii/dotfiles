@@ -95,7 +95,7 @@ syntax on " Syntax highlighting
 set background=dark
 
 if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 endif
 
 if (has("termguicolors"))
@@ -247,8 +247,8 @@ nnoremap <silent> <space>gc :<C-u>Gcommit<cr>
 noremap <silent> <leader>vt :vs term://fish<Cr>
 noremap <silent> <leader>st :sp term://fish<Cr>
 
-" So we don't have to reach for escape to leave insert mode.
-inoremap jk <esc>
+" " So we don't have to reach for escape to leave insert mode.
+" inoremap jk <esc>
 
 " GitGutter
 set updatetime=100
