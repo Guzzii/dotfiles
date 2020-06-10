@@ -2,9 +2,32 @@
 #  Env variables  #
 ###################
 
+export CPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PYTHONPATH=$HOME/carrot/logistics/fill_forecast
+# export PYTHONPATH=$HOME/carrot/logistics/medley:$PYTHONPATH
+# export PYTHONPATH=$HOME/carrot/logistics/batching/logistics:$PYTHONPATH
+
+export PYTHON_HOST_PROG=~/.pyenv/versions/2.7.16/bin/python
+export PYTHON3_HOST_PROG=~/.pyenv/versions/3.7.4/bin/python
+
 export TERM=xterm-256color-italic
 export EDITOR=/usr/local/bin/nvim
 export PYENV_ROOT=$HOME/.pyenv
+
+export FZF_DEFAULT_COMMAND="ag -l --hidden --ignore .git . \$dir 2> /dev/null"
+export FZF_DEFAULT_OPTS="--height 40% --reverse --preview 'head -50 {}'"
+
+export LOGISTICS_DATABASE_URL=postgres://localhost:5432/logistics_dev
+export AVAILABILITY_DATABASE_URL=postgres://localhost:5432/availability_dev
+export SHOPPERS_DATABASE_URL=postgres://localhost:5432/shoppers_dev
+export ORDERS_DATABASE_URL=postgres://localhost:5432/orders_dev
+export DATABASE_URL=postgres://localhost:5432/instacart_dev
+export LOCATIONS_DATABASE_URL=postgres://localhost:5432/locations_dev
 
 ####################
 #  Configure PATH  #
@@ -15,7 +38,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=~/.local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/Guzzii/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -82,12 +105,12 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git 
-    colored-man-pages 
-    colorize 
-    pip 
-    python 
-    brew 
+    git
+    colored-man-pages
+    colorize
+    pip
+    python
+    brew
     osx
     zsh-syntax-highlighting
     zsh-autosuggestions
@@ -124,5 +147,9 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+  eval "$(pyenv init - --no-rehash)"
+fi
+
+if command -v rbenv 1>/dev/null 2>&1; then
+  eval "$(rbenv init -)"
 fi
